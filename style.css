@@ -1,0 +1,93 @@
+body {
+    background-image: url(assets/home.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    width: 100vw;
+    height: 100vh;
+    display: block;
+    margin: 0px;
+    display: flex;
+    justify-content: space-around;
+}
+.card img{
+    height: 190px;
+    width: 130px;
+}
+.ancients-list{
+    display: flex;
+    max-width: 30%;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+.ancient-item{
+    height: 260px;
+    width: 200px;
+    border: 3px solid transparent;
+}
+.ancient-item img{
+    height: 260px;
+    width: 200px;
+}
+.ancient-item.active-ancient {
+    border: 3px solid red;
+}
+.difficulty-container {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+}
+.difficulty {
+    border: 2px solid green;
+    padding: 7px;
+    font-size: 24px;
+    color: green;
+}
+.difficulty.active-difficulty {
+    color: red;
+    border: 2px solid red;
+}
+.dots-container1{
+    display: flex;
+    gap: 10px;
+}
+.dots-container2{
+    display: flex;
+    gap: 10px;
+}
+.dots-container3{
+    display: flex;
+    gap: 10px;
+}
+.dot {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    font-size: 24px;
+    text-align: center;
+}
+.green {
+    background-color: green;
+}
+.brown {
+    background-color: brown;
+}
+.blue {
+    background-color: blue;
+}
+.stage-text {
+    color: purple;
+    font-size: 24px;
+}
+.shuffle-button {
+    display: none;
+    font-size: 24px;
+    color: purple;
+    margin-top: 50px;
+    padding: 15px;
+    background-color: red;
+}
+.deck img {
+    height: 190px;
+    width: 130px;
+}
