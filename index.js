@@ -65,6 +65,15 @@ difficultyContainer.addEventListener('click', function(e) {
 	const target = e.target
   difficulty=target.dataset.difficulty;
   console.log(difficulty);
+  dotsContainer1Green.innerHTML = ancient.firstStage.greenCards;
+  dotsContainer2Green.innerHTML = ancient.secondStage.greenCards;
+  dotsContainer3Green.innerHTML = ancient.thirdStage.greenCards;
+  dotsContainer1Brown.innerHTML = ancient.firstStage.brownCards;
+  dotsContainer2Brown.innerHTML = ancient.secondStage.brownCards;
+  dotsContainer3Brown.innerHTML = ancient.thirdStage.brownCards;
+  dotsContainer1Blue.innerHTML = ancient.firstStage.blueCards;
+  dotsContainer2Blue.innerHTML = ancient.secondStage.blueCards;
+  dotsContainer3Blue.innerHTML = ancient.thirdStage.blueCards;
   for (let i = 0; i < difficultyItem.length; i++) {
     difficultyItem[i].classList.remove('active-difficulty')
 
