@@ -27,6 +27,8 @@ let stagesResultBlue =[];
 let stagesResultBrown =[];
 let stagesResultGreen =[];
 let allStagesResult=[];
+let difficulty;
+
 
 ancientList.addEventListener('click', function(e) {
   const ancientItems = document.querySelectorAll('.ancient-item')
@@ -61,8 +63,11 @@ difficultyContainer.addEventListener('click', function(e) {
   const shuffleButton = document.querySelector('.shuffle-button')
   shuffleButton.style.display = 'block'
 	const target = e.target
+  difficulty=target.dataset.difficulty;
+  console.log(difficulty);
   for (let i = 0; i < difficultyItem.length; i++) {
     difficultyItem[i].classList.remove('active-difficulty')
+
   }
   target.classList.add('active-difficulty');
   console.log(ancient.firstStage.blueCards);
@@ -72,21 +77,27 @@ function stage(cardsDataColor, numStage1, numStage2, numStage3) {
   let stagesResultColor=[]
   let arr =[];
   cardsDataColor.sort(() => Math.random()-0.5);
-  for (let i = 0; i < numStage1; i++) {
-    arr.push(cardsDataColor[i])
+  for (let i = 0; arr.length < numStage1; i++) {
+    if (cardsDataColor[i].difficulty != difficulty) {
+      arr.push(cardsDataColor[i])
+    }
+    console.log(cardsDataColor[i].difficulty)
   }
   stagesResultColor.push(arr);
   arr = []
-  numStage2 =numStage1+numStage2;
-    for (let i = numStage1; i < numStage2; i++) {
-    arr.push(cardsDataColor[i])
+
+  for (let i = numStage1; arr.length < numStage2; i++) {
+    if (cardsDataColor[i].difficulty != difficulty) {
+      arr.push(cardsDataColor[i])
+    }
   }
   stagesResultColor.push(arr)
-  
   arr =[]
-  numStage3 =numStage3+numStage2;
-    for (let i = numStage2; i < numStage3; i++) {
-    arr.push(cardsDataColor[i])
+
+  for (let i = numStage2+numStage1; arr.length < numStage3; i++) {
+    if (cardsDataColor[i].difficulty != difficulty) {
+      arr.push(cardsDataColor[i])
+    }
   }
   stagesResultColor.push(arr)
   // console.log(stagesResultColor);
@@ -117,13 +128,10 @@ deck.addEventListener('click', function(){
     deck.style.display = 'none';
   }
   card.innerHTML= `<img src='${objectCard.cardFace}'>`;
-  console.log(objectCard.color);
   tracker(objectCard.color)
   cartNumber++;
 })
 function tracker(cardColor) {
-  console.log(ancient);
-  
   if (cardColor === 'blue') {
     dotsContainer1Blue.innerText > 0 ? dotsContainer1Blue.innerHTML = dotsContainer1Blue.innerText -1:
     dotsContainer2Blue.innerText > 0 ? dotsContainer2Blue.innerHTML = dotsContainer2Blue.innerText -1:
